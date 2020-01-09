@@ -1,0 +1,23 @@
+--- a/src/Makefile.am
++++ b/src/Makefile.am
+@@ -36,7 +36,7 @@
+ CLEANFILES = $(generated_file_list) .libvirt-schema.xml.tstamp
+ 
+ libvirt_qmf_CXXFLAGS = $(XML_CFLAGS) $(DEPS_CFLAGS)
+-libvirt_qmf_LDADD = -lqmf2 -lqpidtypes -lqpidcommon -lqpidmessaging -lmcommon -lmcommon_qmf -lvirt $(XML_LIBS) $(DEPS_LIBS)
++libvirt_qmf_LDADD = -lqmf2 -lqpidtypes -lqpidmessaging -lmcommon -lmcommon_qmf -lvirt $(XML_LIBS) $(DEPS_LIBS)
+ 
+ dist_pkgdata_DATA = libvirt-schema.xml
+ 
+--- a/src/Makefile.in
++++ b/src/Makefile.in
+@@ -266,7 +266,7 @@
+ BUILT_SOURCES = $(generated_file_list)
+ CLEANFILES = $(generated_file_list) .libvirt-schema.xml.tstamp
+ libvirt_qmf_CXXFLAGS = $(XML_CFLAGS) $(DEPS_CFLAGS)
+-libvirt_qmf_LDADD = -lqmf2 -lqpidtypes -lqpidcommon -lqpidmessaging -lmcommon -lmcommon_qmf -lvirt $(XML_LIBS) $(DEPS_LIBS)
++libvirt_qmf_LDADD = -lqmf2 -lqpidtypes -lqpidmessaging -lmcommon -lmcommon_qmf -lvirt $(XML_LIBS) $(DEPS_LIBS)
+ dist_pkgdata_DATA = libvirt-schema.xml
+ all: $(BUILT_SOURCES)
+ 	$(MAKE) $(AM_MAKEFLAGS) all-am
+

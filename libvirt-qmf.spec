@@ -1,7 +1,7 @@
 Summary: QPid QMF interface to Libvirt
 Name: libvirt-qmf
 Version: 0.3.0
-Release: 4%{?dist}
+Release: 6%{?dist}
 Source: https://github.com/matahari/libvirt-qmf/downloads/%{name}-%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
 License: LGPLv2+
@@ -15,12 +15,13 @@ BuildRequires: qpid-cpp-client-devel >= 0.10
 BuildRequires: libxml2-devel >= 2.7.1
 BuildRequires: libvirt-devel >= 0.5.0
 BuildRequires: qpid-qmf-devel >= 0.8
-BuildRequires: matahari-devel >= 0.4.2
+BuildRequires: matahari-devel >= 0.6.0-13
 Url: http://libvirt.org/qpid
 
 Patch100: domain-prop-init.patch
 Patch101: err_msgs.patch
 Patch102: bz729127-1-init-variables.patch
+Patch103: remove-qpidcommon-linking.patch
 
 %description
 
@@ -39,6 +40,7 @@ a set of objects with properties and methods.
 %patch100 -p1 -b .domain-prop-init
 %patch101 -p1 -b .err_msgs
 %patch102 -p1 -b .bz729127
+%patch103 -p1 -b .remove-qpidcommon-linking
 
 %build
 %configure
@@ -78,6 +80,10 @@ test "x%{buildroot}" != "x" && rm -rf %{buildroot}
 
 
 %changelog
+* Tue Apr 03 2012 Jeff Peeler <jpeeler@redhat.com> - 0.3.0-6
+- Remove linking to libqpidcommon
+  Resolves: rhbz#806950
+
 * Thu Sep 08 2011 Zane Bitter <zbitter@redhat.com> - 0.3.0-4
 - Bump release number for new build
   Resolves: #729127
