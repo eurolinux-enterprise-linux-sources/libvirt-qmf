@@ -1,7 +1,7 @@
 Summary: QPid QMF interface to Libvirt
 Name: libvirt-qmf
 Version: 0.3.0
-Release: 7%{?dist}
+Release: 8%{?dist}
 Source: https://github.com/matahari/libvirt-qmf/downloads/%{name}-%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
 License: LGPLv2+
@@ -15,7 +15,7 @@ BuildRequires: qpid-cpp-client-devel >= 0.10
 BuildRequires: libxml2-devel >= 2.7.1
 BuildRequires: libvirt-devel >= 0.5.0
 BuildRequires: qpid-qmf-devel >= 0.8
-BuildRequires: matahari-devel >= 0.4.4-12
+BuildRequires: matahari-devel >= 0.6.0-13
 Url: http://libvirt.org/qpid
 
 Patch100: domain-prop-init.patch
@@ -80,9 +80,13 @@ test "x%{buildroot}" != "x" && rm -rf %{buildroot}
 
 
 %changelog
-* Tue Apr 03 2012 Jeff Peeler <jpeeler@redhat.com> - 0.3.0-7
+* Fri Jun 08 2012 Jeff Peeler <jpeeler@redhat.com> - 0.3.0-8
+- Bump release number for new build
+  Resolves: rhbz#830087
+
+* Tue Apr 03 2012 Jeff Peeler <jpeeler@redhat.com> - 0.3.0-6
 - Remove linking to libqpidcommon
-  Resolves: rhbz#807931
+  Resolves: rhbz#806950
 
 * Thu Sep 08 2011 Zane Bitter <zbitter@redhat.com> - 0.3.0-4
 - Bump release number for new build
